@@ -1,3 +1,3 @@
 # Variable State - Unity Package
- This is a Variable Obeservable package for unity
+ This is a Obeservable Variable pattern package for unity
 
