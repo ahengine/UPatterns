@@ -1,8 +1,8 @@
 {
-  "name": "com.ahengine.variablestate",
+  "name": "com.ahengine.ahgenericpatterns",
   "version": "1.0.0",
-  "displayName": "VariableState",
-  "description": "VariableState is a Variable Oberservable Package",
+  "displayName": "AHGeneric Patterns",
+  "description": "Generic Patterns",
   "unity": "2021.1",
   "unityRelease": "0b5",
   "author": {
