@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AHGenericPatterns
+namespace AHGenericPatterns.PoolPattern
 {
     [Serializable]
     public class Pool<T> where T : Component

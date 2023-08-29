@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AHGenericPatterns.Test
+namespace AHGenericPatterns.PoolPattern.Test
 {
     public class PoolRuntimeTest : MonoBehaviour
     {

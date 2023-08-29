@@ -1,28 +1,31 @@
 using System;
 
-public abstract class VariableStateGeneric<TVariable,TValue> : VariableState where TVariable : VariableStateGeneric<TVariable, TValue>
+namespace AHGenericPatterns.VariableStates
 {
-    public TValue Value { get; protected set; }
-
-    public event Action<TValue, StateBehaviour> OnValueChanged;
-
-    public VariableStateGeneric(TValue value)
+    public abstract class VariableStateGeneric<TVariable, TValue> : VariableState where TVariable : VariableStateGeneric<TVariable, TValue>
     {
-        Value = value;
-        Update(this);
-    }
-    public VariableStateGeneric(string key, TValue value)
-    {
-        KEY = key;
-        Value = value;
-        Update(key,this);
-    }
+        public TValue Value { get; protected set; }
 
-    public void Update(TValue value, StateBehaviour state)
-    {
-        SetValue(value, state);
-        OnValueChanged.Invoke(Value, state);
-    }
+        public event Action<TValue, StateBehaviour> OnValueChanged;
 
-    protected abstract void SetValue(TValue value, StateBehaviour state);
+        public VariableStateGeneric(TValue value)
+        {
+            Value = value;
+            Update(this);
+        }
+        public VariableStateGeneric(string key, TValue value)
+        {
+            KEY = key;
+            Value = value;
+            Update(key, this);
+        }
+
+        public void Update(TValue value, StateBehaviour state)
+        {
+            SetValue(value, state);
+            OnValueChanged.Invoke(Value, state);
+        }
+
+        protected abstract void SetValue(TValue value, StateBehaviour state);
+    }
 }

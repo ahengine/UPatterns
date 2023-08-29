@@ -1,20 +1,23 @@
-public class FloatVariableState : VariableStateGeneric<FloatVariableState, float>
+namespace AHGenericPatterns.VariableStates
 {
-    public FloatVariableState(string key, float value) : base(key, value) { }
-
-    protected override void SetValue(float value, StateBehaviour state)
+    public class FloatVariableState : VariableStateGeneric<FloatVariableState, float>
     {
-        switch (state)
+        public FloatVariableState(string key, float value) : base(key, value) { }
+
+        protected override void SetValue(float value, StateBehaviour state)
         {
-            case StateBehaviour.Set:
-                Value = value;
-                break;
-            case StateBehaviour.Add:
-                Value += value;
-                break;
-            case StateBehaviour.Mines:
-                Value -= value;
-                break;
+            switch (state)
+            {
+                case StateBehaviour.Set:
+                    Value = value;
+                    break;
+                case StateBehaviour.Add:
+                    Value += value;
+                    break;
+                case StateBehaviour.Mines:
+                    Value -= value;
+                    break;
+            }
         }
     }
 }
