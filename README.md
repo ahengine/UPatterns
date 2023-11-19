@@ -1,6 +1,11 @@
-# AHGenericPatterns | Unity Generic Pattern - Unity Package
+# UPatterns | Unity Patterns - Unity Package
 
+# Object Pool
+# FSM
+# State
+# Module
+# ObserverVariable
+# RepoSingleton
+# Singleton
 
-# Variable State - Unity Package
- This is a Obeservable Variable pattern package for unity
 
