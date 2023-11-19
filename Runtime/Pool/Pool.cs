@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AHGenericPatterns.PoolPattern
+namespace UPattern
 {
     [Serializable]
     public class Pool<T> where T : Component
@@ -15,6 +15,9 @@ namespace AHGenericPatterns.PoolPattern
         public void SetFactory(Func<Transform,T> factory) =>
             this.factory = factory;
 
+        /// <summary>
+        /// Expensive Property
+        /// </summary>
         public T[] ActiveItems
         {
             get

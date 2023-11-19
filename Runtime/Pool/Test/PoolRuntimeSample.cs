@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace AHGenericPatterns.PoolPattern.Test
+namespace UPattern.Sample
 {
-    public class PoolRuntimeTest : MonoBehaviour
+    public class PoolRuntimeSample : MonoBehaviour
     {
         [SerializeField] private Pool<Transform> pool;
 
