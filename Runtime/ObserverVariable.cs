@@ -1,6 +1,6 @@
 using System;
 
-namespace UPattern
+namespace UPatterns
 {
     public class ObserverVariable<T>
     {

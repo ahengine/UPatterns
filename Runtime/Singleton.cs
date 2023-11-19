@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UPattern
+namespace UPatterns
 {
     public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {

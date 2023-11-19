@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-namespace UPattern
+namespace UPatterns
 {
     public abstract class Module<TOwner, TBaseModules> : MonoBehaviour where TOwner : MonoBehaviour where TBaseModules : Module<TOwner, TBaseModules>
     {

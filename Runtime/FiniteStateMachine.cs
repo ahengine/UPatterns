@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace UPattern
+namespace UPatterns
 {
     public class FiniteStateMachine<T>
     {

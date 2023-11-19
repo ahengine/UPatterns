@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UPattern
+namespace UPatterns
 {
     [Serializable]
     public class Pool<T> where T : Component

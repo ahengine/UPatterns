@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UPattern
+namespace UPatterns
 {
     public abstract class State<T> : MonoBehaviour
     {

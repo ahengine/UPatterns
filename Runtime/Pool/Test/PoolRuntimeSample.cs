@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UPattern.Sample
+namespace UPatterns.Sample
 {
     public class PoolRuntimeSample : MonoBehaviour
     {
