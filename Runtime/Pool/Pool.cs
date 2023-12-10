@@ -69,5 +69,11 @@ namespace UPatterns
             while(items.Count > 0)
                 RemoveInstance(items[0]);
         }  
+
+        public void DeactiveAllInstance()
+        {
+            for (int i = 0; i < items.Count; i++)
+                items[i].gameObject.SetActive(false);
+        } 
     }
 }
