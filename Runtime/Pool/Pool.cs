@@ -7,8 +7,8 @@ namespace UPatterns
     [Serializable]
     public class Pool<T> where T : Component
     {
-        [SerializeField] Transform parent;
-        [SerializeField] T prefab;
+        [field:SerializeField] public Transform Parent { private set; get; }
+        [field:SerializeField] public T Prefab { private set; get; }
         private List<T> items = new List<T>();
         private Func<Transform,T> factory;
         
@@ -48,7 +48,7 @@ namespace UPatterns
 
         private T AddNewItem()
         {
-            var item = factory != null ? factory(parent) : GameObject.Instantiate(prefab, parent);
+            var item = factory != null ? factory(Parent) : GameObject.Instantiate(Prefab, Parent);
             item.transform.localPosition = Vector3.zero;
             item.transform.localRotation = Quaternion.identity;
             items.Add(item);

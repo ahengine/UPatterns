@@ -5,7 +5,8 @@ namespace UPatterns
 {
     public class PoolMonoBehaviour<T> : MonoBehaviour where T : Component
     {
-        [SerializeField] T prefab;
+        [field:SerializeField] public Transform Parent { private set; get; }
+        [field:SerializeField] public T Prefab { private set; get; }
         private List<T> items = new List<T>();
 
         public T[] ActiveItems
@@ -37,7 +38,7 @@ namespace UPatterns
         public T GetActive { get { var t = Get; t.gameObject.SetActive(true); return t; } }
 
         protected virtual T CreateItem() =>
-             GameObject.Instantiate(prefab);
+             GameObject.Instantiate(Prefab,Parent);
 
         private T AddNewItem()
         {
