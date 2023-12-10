@@ -4,7 +4,7 @@ namespace UPatterns
 {
     public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
-        public static bool AutoCreate;
+        protected static bool AutoCreate => false;
         private static T instance;
         public static T Instance => 
             instance ?? (AutoCreate ? (instance = new GameObject(typeof(T).Name).AddComponent<T>()) : null);

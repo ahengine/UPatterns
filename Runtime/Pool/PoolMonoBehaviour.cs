@@ -1,34 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace UPatterns
 {
-    [Serializable]
-    public class Pool<T> where T : Component
+    public class PoolMonoBehaviour<T> : MonoBehaviour where T : Component
     {
-        [SerializeField] Transform parent;
         [SerializeField] T prefab;
         private List<T> items = new List<T>();
-        private Func<Transform,T> factory;
-        
-        public void SetFactory(Func<Transform,T> factory) =>
-            this.factory = factory;
 
-        /// <summary>
-        /// Expensive Property
-        /// </summary>
         public T[] ActiveItems
         {
             get
             {
-                List<T> _itemesActive = new List<T>();
+                List<T> itemesActive = new List<T>();
 
                 for (int i = 0; i < items.Count; i++)
                     if (items[i].gameObject.activeSelf)
-                        _itemesActive.Add(items[i]);
+                        itemesActive.Add(items[i]);
 
-                return _itemesActive.ToArray();
+                return itemesActive.ToArray();
             }
         }
 
@@ -46,18 +36,21 @@ namespace UPatterns
 
         public T GetActive { get { var t = Get; t.gameObject.SetActive(true); return t; } }
 
+        protected virtual T CreateItem() =>
+             GameObject.Instantiate(prefab);
+
         private T AddNewItem()
         {
-            var item = factory != null ? factory(parent) : GameObject.Instantiate(prefab, parent);
+            var item = CreateItem();
             item.transform.localPosition = Vector3.zero;
             item.transform.localRotation = Quaternion.identity;
             items.Add(item);
 #if UNITY_EDITOR
-            item.name = typeof(T) + "_" + items.Count;
+            item.name = name+"_"+typeof(T) + "_" + items.Count;
 #endif
             return item;
         }
-        
+
         public void RemoveInstance(T item)
         {
             items.Remove(item);
@@ -66,8 +59,8 @@ namespace UPatterns
 
         public void RemoveAllInstance()
         {
-            while(items.Count > 0)
+            while (items.Count > 0)
                 RemoveInstance(items[0]);
-        }  
+        }
     }
 }
