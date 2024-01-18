@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UPatterns
 {
-    public static class RepoSingleton
+    public static class SingletonRepo
     {
         private static List<Component> instances = new List<Component>();
     

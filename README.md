@@ -5,7 +5,9 @@
 - State
 - Module
 - ObserverVariable
-- RepoSingleton
 - Singleton
+- SingletonRepo
+- UState (Dependency with: newtonsoft-json)
+- UStateRepo
 
 
