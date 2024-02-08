@@ -47,7 +47,8 @@ namespace UPatterns
         {
             if (!IsActive) return;
 
-            OnComplete.Invoke();
+            if(OnComplete != null)
+                OnComplete.Invoke();
             IsActive = false;
             ApplyDeactivate();
         }
